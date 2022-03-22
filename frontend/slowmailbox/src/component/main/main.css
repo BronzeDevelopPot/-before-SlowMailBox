@@ -3,6 +3,8 @@ main {
   margin-right: auto;
   position: relative;
   text-align: center;
+  display: flex;
+  flex-direction: column-reverse;
 
   width: 500px;
   height: 882px;
@@ -22,25 +24,6 @@ main {
   right: 0;
   border-radius: 8px;
   background-color: rgb(231, 71, 71);
-}
-
-.sharebutton {
-  width: 400px;
-  font-size: 20px;
-  background-color: white;
-  border-radius: 7px;
-
-  margin-top: 780px;
-  cursor: pointer;
-}
-
-.sendbutton{
-  font-size: 20px;
-  border-radius:7px;
-  background-color: white;
-
-  margin-top: 600px;
-  cursor: pointer;
 }
 
 .post {
@@ -69,7 +52,7 @@ main {
   margin-left: 20px;
 }
 
-.line {
+.boxline {
   display: flex;
   margin-right : 20px;
 }
@@ -89,4 +72,34 @@ main {
   border: rgb(91, 91, 91) 2px solid;
   border-radius: 3px;
   background: rgb(157, 157, 157);
+}
+
+.sendline {
+  margin: 0 auto;
+  width: 300px;
+
+  margin-bottom: 65px;
+}
+
+.shareline {
+  margin-bottom: 60px;
+}
+
+.sendbutton{
+  width: 70px;
+  font-size: 20px;
+  border-radius:7px;
+  background-color: white;
+
+  float: right;
+  cursor: pointer;
+}
+
+.sharebutton {
+  width: 400px;
+  font-size: 20px;
+  background-color: white;
+  border-radius: 7px;
+
+  cursor: pointer;
 }

@@ -9,16 +9,20 @@ const Main = () => {
         <div className="size1"></div>
         <div className="size1"></div>
 
-        <div className="line">
+        <div className="boxline">
           <div className="size2"></div>
           <div className="wayin"></div>
         </div>
 
         <div className="wayout"></div>
       </div>
-
-      <button className="sendbutton">전송</button>
-      <button className="sharebutton">내 우체통 공유하기 (Link 공유)</button>
+      
+      <div className="shareline">
+        <button className="sharebutton">내 우체통 공유하기 (Link 공유)</button>
+      </div>
+      <div className="sendline">
+        <button className="sendbutton">전송</button>
+      </div>
     </main>
   );
 };
