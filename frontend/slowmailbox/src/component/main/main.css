@@ -20,14 +20,73 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
-  border: black 1px solid;
-  background-color : rgb(231, 71, 71);
+  border-radius: 8px;
+  background-color: rgb(231, 71, 71);
 }
 
 .sharebutton {
   width: 400px;
   font-size: 20px;
   background-color: white;
+  border-radius: 7px;
 
-  margin-top : 780px;
+  margin-top: 780px;
+  cursor: pointer;
+}
+
+.sendbutton{
+  font-size: 20px;
+  border-radius:7px;
+  background-color: white;
+
+  margin-top: 600px;
+  cursor: pointer;
+}
+
+.post {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.size1 {
+  width: 250px;
+  height: 60px;
+  border: black 3px solid;
+  border-radius: 15px;
+  background: rgb(201, 240, 255);
+
+  margin: 20px;
+}
+
+.size2 {
+  width: 130px;
+  height: 60px;
+  border: black 3px solid;
+  border-radius: 15px;
+  background: rgb(201, 240, 255);
+
+  margin-left: 20px;
+}
+
+.line {
+  display: flex;
+  margin-right : 20px;
+}
+
+.wayin {
+  width: 90px;
+  height: 8px;
+  background: rgb(128, 47, 47);
+  
+  margin : auto;
+}
+.wayout {
+  margin: 30px;
+
+  width : 80px;
+  height: 80px;
+  border: rgb(91, 91, 91) 2px solid;
+  border-radius: 3px;
+  background: rgb(157, 157, 157);
 }
