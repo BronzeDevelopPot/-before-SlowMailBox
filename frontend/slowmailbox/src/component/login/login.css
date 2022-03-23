@@ -1,0 +1,8 @@
+/* 카카오 로그인 이미지 CSS */
+.kakao_login_button {
+    display: block;
+    margin: auto;
+    text-align: center;
+  
+    width: 350px;
+}
