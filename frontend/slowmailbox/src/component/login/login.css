@@ -1,8 +1,32 @@
-/* 카카오 로그인 이미지 CSS */
-.kakao_login_button {
+  /* 추억의 느린 우체통 */
+  .title {
+    display: block;
+    padding: auto;
+    text-align: center;
+    margin-bottom: auto;
+    
+  }
+  
+  /* 느린 우체통 만들기 */
+  .signup_promotion {
+    display: block;
+    padding: auto;
+    text-align: center;
+  }
+  
+  /* 이미지 전체 적용 */
+  img {
     display: block;
     margin: auto;
-    text-align: center;
   
+  }
+  
+  /* 자판기 이미지 */
+  .vending_machine {
+    width: 300px;
+  }
+  
+  /* 카카오 로그인 이미지 CSS */
+  .kakao_login_button {
     width: 350px;
-}
+  }
