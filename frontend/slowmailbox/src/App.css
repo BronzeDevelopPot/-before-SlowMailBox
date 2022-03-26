@@ -1,1 +1,13 @@
-/* 추후에 추가 */
+.App {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+  
+    width: 500px;
+    height: 882px;
+    background-color: beige;
+    border: black 1px solid;
+  }

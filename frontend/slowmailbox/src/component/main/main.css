@@ -1,16 +1,3 @@
-main {
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  text-align: center;
-  display: flex;
-  flex-direction: column-reverse;
-
-  width: 500px;
-  height: 882px;
-  background-color: beige;
-  border: black 1px solid;
-}
 
 .mailbox {
   width: 300px;
@@ -78,7 +65,7 @@ main {
   margin: 0 auto;
   width: 300px;
 
-  margin-bottom: 65px;
+  margin-bottom: 70px;
 }
 
 .shareline {
