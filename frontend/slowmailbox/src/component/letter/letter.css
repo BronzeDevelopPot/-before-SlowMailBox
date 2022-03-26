@@ -1,0 +1,23 @@
+.textArea {
+  margin-bottom : 35px;
+  resize: none;
+
+  border: gray solid;
+  background-color: rgb(255, 249, 242);
+  font-size: 17px;
+}
+
+.letter_send {
+  width: 70px;
+  font-size: 20px;
+  border-radius: 7px;
+  background-color: white;
+
+  float: right;
+  cursor: pointer;
+}
+
+.letter_sendline {
+    width : 450px;
+    margin-bottom : 100px;
+}
