@@ -1,32 +1,60 @@
   /* 추억의 느린 우체통 */
   .title {
     display: block;
-    padding: auto;
     text-align: center;
-    margin-bottom: auto;
-    
+    margin: auto;
+
+    font-size: 60px;
+    font-weight: bold;
   }
   
   /* 느린 우체통 만들기 */
   .signup_promotion {
     display: block;
     padding: auto;
-    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+
+    font-size: 40px;
+    font-weight: normal;
   }
   
   /* 이미지 전체 적용 */
   img {
     display: block;
-    margin: auto;
-  
+    text-align: center;  
   }
   
   /* 자판기 이미지 */
   .vending_machine {
-    width: 300px;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    width: 400px;
   }
   
   /* 카카오 로그인 이미지 CSS */
   .kakao_login_button {
-    width: 350px;
+    margin-bottom: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+    width: 450px;
+  }
+
+  /* 메인으로 버튼*/ 
+  button{
+    margin-bottom: 30px;
+  }
+
+  /* 폰트 적용 */
+  @font-face {
+    font-family: 'Uiyeun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Uiyeun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  #ownglyph{
+    font-family: 'Uiyeun';
   }

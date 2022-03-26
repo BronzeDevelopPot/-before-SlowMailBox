@@ -5,12 +5,14 @@ import './login.css';
 const Login = () => {
     return(
         <login>
-            <div>
-                <h1 className='title'>추억의 느린 우체통</h1>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"></link>
+
+            <div id='ownglyph'>
+                <p className='title'>추억의 느린 우체통</p>
                 <img className='vending_machine' src='/login_img/test.jpg'></img>
-                <h3 className='signup_promotion'>느린우체통 만들기</h3>
+                <p className='signup_promotion'>느린우체통 만들기</p>
                 <img className='kakao_login_button' src="/login_img/kakao_login_large_wide.png"></img> 
-                <Link to="/main"><button>메인으로</button></Link>
+                <Link to="/main"><button type="button" class="btn btn-danger">이미 계정이 있다면?</button></Link>
             </div>
         </login>
     )
