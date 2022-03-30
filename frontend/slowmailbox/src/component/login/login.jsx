@@ -9,7 +9,7 @@ const Login = () => {
 
             <div id='ownglyph'>
                 <p className='title'>추억의 느린 우체통</p>
-                <img className='vending_machine' src='/login_img/test.jpg'></img>
+                <img className='vending_machine' src='/login_img/postmailVendingmachine.png'></img>
                 <p className='signup_promotion'>느린우체통 만들기</p>
                 <img className='kakao_login_button' src="/login_img/kakao_login_large_wide.png"></img> 
                 <Link to="/main"><button type="button" class="btn btn-danger">이미 계정이 있다면?</button></Link>
