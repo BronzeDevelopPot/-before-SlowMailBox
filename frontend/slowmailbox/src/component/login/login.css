@@ -1,61 +1,59 @@
-  /***** 로그인 기본 페이지 *****/
-  /* 추억의 느린 우체통 */
-  .title {
-    display: block;
-    text-align: center;
-    margin: auto;
+/***** 로그인 기본 페이지 *****/
+/* 추억의 느린 우체통 */
+.title {
+  display: block;
+  text-align: center;
+  margin: auto;
 
-    font-size: 60px;
-    font-weight: bold;
-  }
-  
-  /* 느린 우체통 만들기 */
-  .signup_promotion {
-    display: block;
-    padding: auto;
-    margin-top: 0px;
-    margin-bottom: 10px;
+  font-size: 55px;
+  font-weight: bold;
+}
 
-    font-size: 30px;
-    font-weight: normal;
-  }
-  
-  /* 이미지 전체 적용 */
-  img {
-    display: block;
-    text-align: center;  
-  }
-  
-  /* 자판기 이미지 */
-  .vending_machine {
-    margin-top: 0px;
-    margin-left: 100px;
-    margin-right: 100px;
+/* 느린 우체통 만들기 */
+.signup_promotion {
+  display: block;
+  padding: auto;
+  margin-top: 0px;
+  margin-bottom: 10px;
 
-    width: 300px;
-  }
-  
-  /* 카카오 로그인 이미지 CSS */
-  .kakao_login_button {
-    margin-bottom: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
+  font-size: 30px;
+  font-weight: normal;
+}
 
-    width: 400px;
-  }
+/* 이미지 전체 적용 */
+img {
+  display: block;
+  text-align: center;
+}
 
-  /* 메인으로 버튼*/ 
-  button{
-    margin-bottom: 30px;
-  }
+/* 자판기 이미지 */
+.vending_machine {
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
 
-  /* 폰트 적용 */
-  @font-face {
-    font-family: 'Uiyeun';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Uiyeun.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-  #ownglyph{
-    font-family: 'Uiyeun';
-  }
+  width: 350px;
+}
+
+/* 카카오 로그인 이미지 CSS */
+.kakao_login_button {
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+  width: 400px;
+}
+
+/* 메인으로 버튼*/
+button {
+  margin-bottom: 30px;
+}
+
+/* 폰트 적용 */
+@font-face {
+  font-family: "Uiyeun";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Uiyeun.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
