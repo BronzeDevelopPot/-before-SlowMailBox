@@ -15,21 +15,60 @@ nunjucks.configure('views', {
 })
 
 app.use(session({
-    secret: 'aaa',
+    secret: 'ras',
     resave: true,
     secure: false,
-    saveUninitialized:false,
+    saveUninitialized: false,
 }))
 
 const kakao = {
-    clientID: 'env.KAKAO_ID',
-    clientSecret: 'env.Secret',
-    redirectURL: 'env.Redirect_URL' 
+    clientID: process.env.KAKAO_ID,
+    clientSecret: process.env.Secret,
+    redirectURL: process.env.Redirect_URL 
 }
 
-app.get('/auth/kakao',(req,res)=>{
+app.get('/auth/kakao', (req, res) => {
     const kakaoAuthURL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakao.clientID}&redirect_uri=${kakao.redirectURL}&response_type=code&scope=profile_nickname,account_email`;
     res.redirect(kakaoAuthURL);
+})
+
+app.get('/auth/kakao/callback', async(req, res) => {
+    try{
+    token = await axios({
+        method: 'POST',
+        url: 'https://kauth.kakao.com/oauth/token',
+        headers:{
+            'content-type':'application/x-www-form-urlencoded'
+        },
+        data:qs.stringify({
+            grant_type: 'authorization_code',
+            client_id:kakao.clientID,
+            client_secret:kakao.clientSecret,
+            redirectUri:kakao.redirectURL,
+            code:req.query.code,
+        })
+    })
+}catch(err){
+    res.json(err.data);
+}
+    let user;
+    try{
+        console.log(token);
+        user = await axios({
+            method:'get',
+            url:'https://kapi.kakao.com/v2/user/me',
+            headers:{
+                Authorization: `Bearer ${token.data.access_token}`
+            }
+        })
+    }catch(e){
+        res.json(e.data);
+    }
+    console.log(user);
+ 
+    req.session.kakao = user.data;
+    
+    res.send('success');
 })
 
 var db; // 몽고디비 연결 ↓
