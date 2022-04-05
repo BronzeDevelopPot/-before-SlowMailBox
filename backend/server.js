@@ -86,3 +86,5 @@ app.use(express.static(path.join(__dirname, '../frontend/slowmailbox/build')));
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
 });
+
+// 오 ㅐ 이래요...
