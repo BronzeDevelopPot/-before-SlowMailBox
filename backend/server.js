@@ -87,16 +87,18 @@ MongoClient.connect(process.env.DB_URL, function(err, client){
     });
 });
 
-// app.use(express.static(path.join(__dirname, '../frontend/slowmailbox/build')));
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
+});
 
-<<<<<<< Updated upstream
+
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
 });
 
 // 서버는 잘 오픈되는데 프론트엔드쪽에서 빌드가 안 돼서 "http://localhost:8080/"로 들어가면 오류 날 것임
 
-// // 편지 내용 받아서 DB에 저장하는 API
+// 편지 내용 받아서 DB에 저장하는 API
 // app.post('/send', function(req, res) {
 //     res.send('전송 완료');
 //     // 총 편지 개수 가져와 total 변수에 저장
@@ -112,8 +114,5 @@ app.get('*', function(req, res) {
 //             });
 //         });
 //     });
-=======
-// app.get('/', function(req, res) {
-//     res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
->>>>>>> Stashed changes
+
 // });
