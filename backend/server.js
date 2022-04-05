@@ -75,6 +75,8 @@ app.get('/auth/kakao/callback', async(req, res) => {
     res.send('success');
 })
 
+app.get(kakao.redirectURL)
+
 var db; // 몽고디비 연결 ↓
 MongoClient.connect(process.env.DB_URL, function(err, client){
     if (err) return console.log(err);
@@ -85,12 +87,9 @@ MongoClient.connect(process.env.DB_URL, function(err, client){
     });
 });
 
-app.use(express.static(path.join(__dirname, '../frontend/slowmailbox/build')));
+// app.use(express.static(path.join(__dirname, '../frontend/slowmailbox/build')));
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
-});
-
+<<<<<<< Updated upstream
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
 });
@@ -113,4 +112,8 @@ app.get('*', function(req, res) {
 //             });
 //         });
 //     });
+=======
+// app.get('/', function(req, res) {
+//     res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
+>>>>>>> Stashed changes
 // });
