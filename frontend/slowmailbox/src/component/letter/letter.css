@@ -1,135 +1,45 @@
-.textArea {
-  margin-bottom : 35px;
-  resize: none;
+.letter {
+  width: 440px;
+  height: 700px;
+  margin-top: 40px;
+  margin-left: 30px;
 
-  border: gray solid;
-  background-color: rgb(255, 249, 242);
-  font-size: 17px;
+  background-image: url(letter01.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .letter_send {
   width: 70px;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 33px;
   border-radius: 7px;
+  border: black solid 2.5px;
   background-color: white;
 
   float: right;
   cursor: pointer;
+  font-family: "Uiyeun";
 }
 
 .letter_sendline {
-    width : 450px;
-    margin-bottom : 100px;
+  width: 450px;
+  margin-bottom: 100px;
 }
 
+.textArea_style {
+  display: block;
+  margin: 0 auto;
+  resize: none;
+  border: none;
+  outline: none;
+  overflow: hidden;
 
-
-
-/* 모달창 테스트 */
-/* 모달창 전체 적용 */
-#modal{
-  color: black;
-  
-  font-size: 35px;
-}
-
-/* 모달창 뒤 */
-#modal.modal-overlay {
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-  
-  left: 0;
-  top: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px); /*이건 왜 있지..*/
-
-
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-/* 모달창 */
-#modal .modal-window {
-background: white;
-box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.37 );
-backdrop-filter: blur( 13.5px );
--webkit-backdrop-filter: blur( 13.5px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
-width: 400px;
-height: 350px;
-position: relative;
-top: -100px;
-padding: 10px;
-}
-
-
-/* 모달창1 닉네임 멘트 */
-#modal .nickname_ment{
-  margin-top: 30px;
-
-  font-weight: bold;
-}
-/* 모달창1 닉네임 입력창 */
-#modal .nickname{
-  text-align: center;
-  width: 250px;
-  height: 30px;
-
-  font-family: inherit;
-  font-size: 30px;
-
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/* 모달창1 날짜 멘트 */
-#modal .date_ment{
-  margin-top: 25px;
-
-  font-weight: bold;
-}
-/* 모달창1 날짜 select 전체 */
-#modal .date_select{
-  display: flex;
-  justify-content: center;
-  
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-/* 모달창1 날짜 띄어쓰기 */
-#modal .date_select div{
-  padding-right: 15px;
-}
-/* 모달창1 select*/
-#modal .date_select select{
-  width:75px;
-
-  text-align: center;
-  font-family: inherit;
-  font-size: 30px;
-
-}
-
-/* 모달창1 작성 버튼 */
-#modal .summit_button {
-  display: inline;
-  float: right;
-  margin-top: 50px;
-
-  cursor: pointer;
-
-  width: 80px;
-
-  color: black;
-
-  font-family: inherit;
-  font-size: 30px;
-  font-weight: bolder;
+  padding-top: 43px;
+  width: 330px;
+  height: 600px;
+  background-color: transparent;
+  font-size: 28px;
+  font-family: "Uiyeun";
+  line-height: 42px;
 }

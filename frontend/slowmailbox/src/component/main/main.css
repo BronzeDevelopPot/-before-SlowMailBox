@@ -38,6 +38,7 @@ main {
   width: 70px;
   font-size: 33px;
   border-radius: 7px;
+  border: black solid 2.5px;
   background-color: white;
   font-family: 'Uiyeun';
 
@@ -50,6 +51,7 @@ main {
   font-size: 35px;
   background-color: white;
   border-radius: 7px;
+  border: black solid 2.5px;
   font-family: 'Uiyeun';
 
   cursor: pointer;

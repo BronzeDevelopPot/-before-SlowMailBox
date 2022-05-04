@@ -1,0 +1,95 @@
+#modal {
+  color: black;
+  font-size: 35px;
+}
+
+/* 모달창 뒤 */
+#modal.modal-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px); /*이건 왜 있지..*/
+
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* 모달창 */
+#modal .modal-window {
+  background: white;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 400px;
+  height: 350px;
+  position: relative;
+  top: -100px;
+  padding: 10px;
+}
+
+/* 모달창1 닉네임 멘트 */
+#modal .nickname_ment {
+  margin-top: 30px;
+  font-weight: bold;
+}
+/* 모달창1 닉네임 입력창 */
+#modal .nickname {
+  text-align: center;
+  width: 250px;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  font-family: inherit;
+  font-size: 30px;
+}
+
+/* 모달창1 날짜 멘트 */
+#modal .date_ment {
+  margin-top: 25px;
+
+  font-weight: bold;
+}
+/* 모달창1 날짜 select 전체 */
+#modal .date_select {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* 모달창1 날짜 띄어쓰기 */
+#modal .date_select div {
+  padding-right: 15px;
+}
+/* 모달창1 select*/
+#modal .date_select select {
+  width: 75px;
+
+  text-align: center;
+  font-family: inherit;
+  font-size: 30px;
+}
+
+/* 모달창1 작성 버튼 */
+#modal .summit_button {
+  display: inline;
+  float: right;
+  margin-top: 50px;
+  width: 80px;
+  color: black;
+
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 30px;
+  font-weight: bolder;
+}
