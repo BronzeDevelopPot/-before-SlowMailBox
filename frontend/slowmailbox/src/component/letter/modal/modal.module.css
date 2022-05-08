@@ -1,0 +1,8 @@
+/* 보이게 하기 */
+.appe{
+  display: inline;
+}
+/* 안 보이게 하기 */
+.disa{
+  display: none;
+}
