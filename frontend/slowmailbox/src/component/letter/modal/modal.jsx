@@ -1,4 +1,3 @@
-import { select } from "nunjucks/src/filters";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,8 +6,6 @@ import styles from "./modal.module.css";
 
 
 const Modal = () => {
-
-  const $ = window.$;
 
   const[modals, nextModal] = useState({
     modal1 : true,
@@ -25,42 +22,34 @@ const Modal = () => {
   const thisDate = today.getDate();
   const thisMonth = today.getMonth() + 1;
   const monthList = [];
-  for (var i=thisMonth; i<13; i++){ monthList.push(i); }
-
-  const [selected, setSelected] = useState();
-  const handleSelect = (e) => {
-    setSelected(e.target.value);
+  for (var i=thisMonth; i<13; i++){ 
+    monthList.push(i); 
   }
 
-  const selectedMonth = useRef();
-  const [dateList, change] = useState([]);
-  const setDate = () => {
-    if (selectedMonth == 2){
-      dateList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]
+  const [selectedMonth, setSelectedMonth] = useState();
+  const [dateList, setDateList] = useState([]);
+  const onChange = (e) => {
+    setSelectedMonth(e.target.value);
+
+    if (e.target.value <= 8){
+      setDateList([1,2])
     }
-    else if (selectedMonth == thisMonth){
-      
+    else if (e.target.value > 8){
+      setDateList([3,4,5])
     }
-    else if (selectedMonth%2==0){
-      dateList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
-    }
-    else{
-      dateList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
-    }
-    change(dateList)
   }
 
-
-
-
-
+  const [selectedDate, setSelectedDate] = useState();
+  const handleDate = (e) => {
+    setSelectedDate(e.target.value);
+  }
 
   return (
     <div id="modal" className="modal-overlay">
       <div className="modal-window">
           
           <div className={modal1 === true ? styles.appe : styles.disa}>
-            <div className = "nickname_ment">닉네임 입력</div>
+            <div className = "nickname_ment"> 닉네임을 입력하세요! </div>
             <input type="text" className ="nickname" name="nickname"></input>
             
             <div className = "date_ment">보낼 날짜를 선택해주세요!</div>
@@ -69,28 +58,28 @@ const Modal = () => {
                 <option value="2022">2022</option>
               </select>
               <div>년</div>
+
               <select className ="month" name="month" id="month_id" 
-                onChange={() => {
-                  handleSelect(); setDate(); alert(this.value)}} value={selected} ref={selectedMonth}>
-                    {monthList.map((item) => (
-                      <option value={item} key={item}>{item}</option>
-                    ))}
+                onChange={onChange} value={selectedMonth}>
+                  {monthList.map((item) => (
+                    <option value={item} key={item}>{item}</option>
+                  ))}
               </select>
               <div>월</div>
+
               <select className ="date" name="date" id="date_id"
-                onChange={handleSelect} value={selected}>
+                onChange={handleDate} value={selectedDate}>
                   {dateList.map((item) => (
                       <option value={item} key={item}>{item}</option>
                   ))}
-                <option></option>
               </select>
               <div>일</div>
+              
             </div>
-
-
 
               <button className="summit_button" onClick={submit}>작성</button>
           </div>
+
 
         
           <div className={modal2 === true ? styles.appe : styles.disa}>
