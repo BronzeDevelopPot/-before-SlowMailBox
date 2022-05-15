@@ -86,7 +86,7 @@ const Modal = () => {
       <div className="modal-window">
           
           <div className={modal1 === true ? styles.appe : styles.disa}>
-            <div className = "nickname_ment"> 닉네임을 입력하세요! {thisMonth} {selectedMonth} </div>
+            <div className = "nickname_ment"> 닉네임을 입력하세요! </div>
             <input type="text" className ="nickname" name="nickname"></input>
             
             <div className = "date_ment">보낼 날짜를 선택해주세요!</div>
