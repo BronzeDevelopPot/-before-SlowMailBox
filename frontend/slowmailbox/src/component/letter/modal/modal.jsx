@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./modal.css";
@@ -26,16 +26,53 @@ const Modal = () => {
     monthList.push(i); 
   }
 
-  const [selectedMonth, setSelectedMonth] = useState();
-  const [dateList, setDateList] = useState([]);
+  const arr = [];
+  if(thisMonth == 6 || thisMonth == 9 || thisMonth == 11){
+    arr.splice(0,arr.length);
+
+    for(var x=thisDate; x<=30; x++){
+      arr.push(x);
+    }
+  }
+  else{
+    arr.splice(0,arr.length);
+
+    for(var y=thisDate; y<=31; y++){
+      arr.push(y);
+    }
+  }
+
+  const [selectedMonth, setSelectedMonth] = useState(thisMonth);
+  const [dateList, setDateList] = useState(arr);
   const onChange = (e) => {
     setSelectedMonth(e.target.value);
 
-    if (e.target.value <= 8){
-      setDateList([1,2])
+    if (e.target.value == thisMonth){
+
+      if(e.target.value == 6 || e.target.value == 9 || e.target.value == 11){
+        let date_1 = [];
+        date_1.splice(0,date_1.length);
+
+        for(var i=thisDate; i<=30; i++){
+          date_1.push(i);
+        }
+        setDateList(date_1);
+      }
+      else{
+        let date_2 = [];
+        date_2.splice(0,date_2.length);
+
+        for(var j=thisDate; j<=31; j++){
+          date_2.push(j);
+        }
+        setDateList(date_2);
+      }
     }
-    else if (e.target.value > 8){
-      setDateList([3,4,5])
+    else if (e.target.value == 6 || e.target.value == 9 || e.target.value == 11){
+      setDateList([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30])
+    }
+    else{
+      setDateList([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31])
     }
   }
 
@@ -49,7 +86,7 @@ const Modal = () => {
       <div className="modal-window">
           
           <div className={modal1 === true ? styles.appe : styles.disa}>
-            <div className = "nickname_ment"> 닉네임을 입력하세요! </div>
+            <div className = "nickname_ment"> 닉네임을 입력하세요! {thisMonth} {selectedMonth} </div>
             <input type="text" className ="nickname" name="nickname"></input>
             
             <div className = "date_ment">보낼 날짜를 선택해주세요!</div>
