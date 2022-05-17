@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import "./modal.css";
 import styles from "./modal.module.css";
@@ -7,13 +8,18 @@ import styles from "./modal.module.css";
 
 const Modal = () => {
 
-  const[modals, nextModal] = useState({
+  const[modals, setModals] = useState({
     modal1 : true,
     modal2 : false
   });
   const {modal1, modal2} = modals;
   const submit = () => {
-    nextModal({modal1:false, modal2:true});    
+    setModals({modal1:false, modal2:true});    
+
+    axios.post(
+      'http://localhost:3000/send',
+      {text : 'text', name : 'nickname', year : 'year', month : 'month', date : 'date'}
+    )
   };
 
   
@@ -114,7 +120,6 @@ const Modal = () => {
               <div>일</div>
               
             </div>
-
               <button className="summit_button" onClick={submit}>작성</button>
           </div>
 

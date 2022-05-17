@@ -9,7 +9,7 @@ const Letter = () => {
 
   const onClick = () => {
     setModal(true);
-  };
+};
 
   /* textarea 글자 수 제한 */
   const checkLength = (e, setLength) => {
@@ -28,7 +28,7 @@ const Letter = () => {
     <div id="ownglyph">
       <div>{modal === true ? <Modal></Modal> : null}</div>
       <div className="letter">
-        <textarea className="textArea_style" onChange={checkLength}></textarea>
+        <textarea className="textArea_style" onChange={checkLength} name="text"></textarea>
       </div>
 
       <div className="letter_sendline">
