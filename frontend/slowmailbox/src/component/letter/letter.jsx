@@ -9,10 +9,12 @@ const Letter = () => {
 
   const onClick = () => {
     setModal(true);
-};
+  };
+  
+  const [text, setText] = useState("");
 
-  /* textarea 글자 수 제한 */
-  const checkLength = (e, setLength) => {
+  const onChange = (e, setLength) => {
+    /* textarea 글자 수 제한 */
     const targetText = e.target.value;
     const textLength = e.target.value.length;
 
@@ -22,13 +24,16 @@ const Letter = () => {
       e.target.value = targetText.substr(0, 300);
       setLength(196);
     }
+
+    setText(e.target.value);
   };
+
 
   return (
     <div id="ownglyph">
       <div>{modal === true ? <Modal></Modal> : null}</div>
       <div className="letter">
-        <textarea className="textArea_style" onChange={checkLength} name="text"></textarea>
+        <textarea className="textArea_style" onChange={onChange} value={text}></textarea>
       </div>
 
       <div className="letter_sendline">
