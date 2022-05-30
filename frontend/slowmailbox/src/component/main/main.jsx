@@ -8,7 +8,11 @@ const Main = () => {
       <div id="ownglyph">
         <p className="user_box">00님의 우체통</p>
         <div>
-          <div className="mailbox"></div>
+          <div className="mailbox">
+            <Link to="/mail">
+              <button className="my_mail">♥</button>
+            </Link>
+          </div>
         </div>
         <div className="sendline">
           <Link to="/letter"><button className="sendbutton">전송</button></Link>

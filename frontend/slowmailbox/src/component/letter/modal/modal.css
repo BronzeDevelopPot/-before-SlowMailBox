@@ -125,8 +125,6 @@
 }
 #modal .kakao_start_login_button {
   display: inline;
-
   cursor: pointer;
-
   width: 350px;
 }
