@@ -16,17 +16,22 @@ const Modal = (props) => {
 
     if (selectedMonth < 10) {
       var month = "0" + String(selectedMonth);
+    }else{
+      month = String(selectedMonth)
     }
+
     if (Number(selectedDate) < 10) {
       var date = "0" + String(selectedDate);
+    }else{
+      date = String(selectedDate)
     }
 
     axios.post("http://localhost:3000/send", {
       text: props.inputText,
       name: name,
       year: "2022",
-      month: String(month),
-      date: String(date),
+      month: month,
+      date: date,
     });
   };
 

@@ -3622,6 +3622,11 @@
     "domelementtype" "^2.0.1"
     "entities" "^2.0.0"
 
+"dom-to-image@^2.6.0":
+  "integrity" "sha512-Dt0QdaHmLpjURjU7Tnu3AgYSF2LuOmksSGsUcE6ItvJoCWTBEmiMXcqBdNSAm9+QbbwD7JMoVsuuKX6ZVQv1qA=="
+  "resolved" "https://registry.npmjs.org/dom-to-image/-/dom-to-image-2.6.0.tgz"
+  "version" "2.6.0"
+
 "domelementtype@^2.0.1", "domelementtype@^2.2.0":
   "integrity" "sha512-DtBMo82pv1dFtUmHyr48beiuq792Sxohr+8Hm9zoxklYPfa6n0Z3Byjj2IV7bmr2IyqClnqEQhfgHJJ5QF0R5A=="
   "resolved" "https://registry.npmjs.org/domelementtype/-/domelementtype-2.2.0.tgz"
@@ -4240,6 +4245,11 @@
   dependencies:
     "loader-utils" "^2.0.0"
     "schema-utils" "^3.0.0"
+
+"file-saver@^2.0.5":
+  "integrity" "sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA=="
+  "resolved" "https://registry.npmjs.org/file-saver/-/file-saver-2.0.5.tgz"
+  "version" "2.0.5"
 
 "filelist@^1.0.1":
   "integrity" "sha512-z7O0IS8Plc39rTCq6i6iHxk43duYOn8uFJiWSewIq0Bww1RNybVHSCjahmcC87ZqAm4OTvFzlzeGu3XAzG1ctQ=="
