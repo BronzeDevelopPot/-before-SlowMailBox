@@ -114,3 +114,9 @@ app.post('/send', function(req, res) {
         });
     });
 });
+
+app.get('/arrive', function(req, res) {
+    db.collection('post').find().toArray(function(e, r) {
+        console.log(r);
+    });
+});
