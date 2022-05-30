@@ -4,7 +4,6 @@ import axios from "axios";
 import "./modal.css";
 import styles from "./modal.module.css";
 
-
 const Modal = (props) => {
   const [modals, setModals] = useState({
     modal1: true,
@@ -15,12 +14,19 @@ const Modal = (props) => {
   const submit = () => {
     setModals({ modal1: false, modal2: true });
 
+    if (selectedMonth < 10) {
+      var month = "0" + String(selectedMonth);
+    }
+    if (Number(selectedDate) < 10) {
+      var date = "0" + String(selectedDate);
+    }
+
     axios.post("http://localhost:3000/send", {
       text: props.inputText,
       name: name,
       year: "2022",
-      month: String(selectedMonth),
-      date: String(selectedDate)
+      month: String(month),
+      date: String(date),
     });
   };
 
