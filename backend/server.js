@@ -83,7 +83,7 @@ MongoClient.connect(process.env.DB_URL, function(err, client){
     db = client.db('SlowMailBox'); // 'SlowMailBox'라는 데이터베이스에 접속
 
     app.listen(process.env.PORT, function() { // 8080포트에 서버 열기
-        console.log('listening on 8080');
+        console.log('listening on 3000');
     });
 });
 
@@ -115,8 +115,12 @@ app.post('/send', function(req, res) {
     });
 });
 
-app.get('/arrive', function(req, res) {
+// 서버 오픈은 잘 되는데 /mail로 들어가면 오류메시지도 안 뜨고 편지 내용도 안 받아와짐
+app.get('/mail', function(req, res) {
     db.collection('post').find().toArray(function(e, r) {
+        if(e) return console.log('오류');
+        console.log('전송완료');
         console.log(r);
+        res.send(r);
     });
 });
