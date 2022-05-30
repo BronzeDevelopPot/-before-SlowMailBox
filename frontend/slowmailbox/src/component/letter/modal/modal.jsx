@@ -5,21 +5,22 @@ import "./modal.css";
 import styles from "./modal.module.css";
 
 
-const Modal = () => {
+const Modal = (props) => {
   const [modals, setModals] = useState({
     modal1: true,
     modal2: false,
   });
   const { modal1, modal2 } = modals;
+
   const submit = () => {
     setModals({ modal1: false, modal2: true });
 
     axios.post("http://localhost:3000/send", {
-      text: "text",
+      text: props.inputText,
       name: name,
-      year: 2022,
-      month: selectedMonth,
-      date: selectedDate,
+      year: "2022",
+      month: String(selectedMonth),
+      date: String(selectedDate)
     });
   };
 

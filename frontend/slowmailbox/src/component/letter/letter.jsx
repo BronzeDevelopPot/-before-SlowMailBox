@@ -11,29 +11,18 @@ const Letter = () => {
     setModal(true);
   };
   
-  const [text, setText] = useState("");
+  const [inputText, setInputText] = useState("");
 
-  const onChange = (e, setLength) => {
-    /* textarea 글자 수 제한 */
-    const targetText = e.target.value;
-    const textLength = e.target.value.length;
-
-    if (textLength <= 300) {
-      setLength(e.target.value.length);
-    } else {
-      e.target.value = targetText.substr(0, 300);
-      setLength(196);
-    }
-
-    setText(e.target.value);
+  const onChange = (e) => {
+    setInputText(e.target.value);
   };
 
 
   return (
     <div id="ownglyph">
-      <div>{modal === true ? <Modal></Modal> : null}</div>
+      <div>{modal === true ? <Modal inputText={inputText}></Modal> : null}</div>
       <div className="letter">
-        <textarea className="textArea_style" onChange={onChange} value={text}></textarea>
+        <textarea className="textArea_style" onChange={onChange} value={inputText} maxLength={300} rows={1}></textarea>
       </div>
 
       <div className="letter_sendline">
