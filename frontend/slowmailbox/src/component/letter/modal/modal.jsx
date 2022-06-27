@@ -14,16 +14,21 @@ const Modal = (props) => {
   const submit = () => {
     setModals({ modal1: false, modal2: true });
 
+    var month;
+    var date;
+    
     if (selectedMonth < 10) {
-      var month = "0" + String(selectedMonth);
-    }else{
+      month = "0" + String(selectedMonth);
+    }
+    else if(selectedMonth >= 10){
       month = String(selectedMonth)
     }
 
     if (Number(selectedDate) < 10) {
-      var date = "0" + String(selectedDate);
-    }else{
-      date = String(selectedDate)
+      date = "0" + String(Number(selectedDate));
+    }
+    else if(Number(selectedDate) >= 10){
+      date = String(Number(selectedDate))
     }
 
     axios.post("http://localhost:3000/send", {
