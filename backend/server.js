@@ -78,11 +78,11 @@ app.get('/auth/kakao/callback', async(req, res) => {
 app.get(kakao.redirectURL)
 
 var db; // 몽고디비 연결 ↓
-MongoClient.connect(process.env.DB_URL, function(err, client){
-    if (err) return console.log(err);
+MongoClient.connect(process.env.DB_URL, function(e, client){
+    if (e) return console.log(e);
     db = client.db('SlowMailBox'); // 'SlowMailBox'라는 데이터베이스에 접속
 
-    app.listen(process.env.PORT, function() { // 8080포트에 서버 열기
+    app.listen(process.env.PORT, function() { // 3000포트에 서버 열기
         console.log('listening on 3000');
     });
 });
@@ -90,12 +90,6 @@ MongoClient.connect(process.env.DB_URL, function(err, client){
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
 });
-
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
-});
-
-// 서버는 잘 오픈되는데 프론트엔드쪽에서 빌드가 안 돼서 "http://localhost:8080/"로 들어가면 오류 날 것임
 
 // 편지 내용 받아서 DB에 저장하는 API
 app.post('/send', function(req, res) {
@@ -115,12 +109,21 @@ app.post('/send', function(req, res) {
     });
 });
 
-// 서버 오픈은 잘 되는데 /mail로 들어가면 오류메시지도 안 뜨고 편지 내용도 안 받아와짐
+// DB에서 편지 내용 불러오는 API
 app.get('/mail', function(req, res) {
-    db.collection('post').find().toArray(function(e, r) {
-        if(e) return console.log('오류');
-        console.log('전송완료');
-        console.log(r);
-        res.send(r);
+    /* req.body._id = parseInt(req.body._id); */
+    // 요청에서 넘어온 편지 고유번호를 이용하여 DB에서 편지 찾기(임시로 아무 숫자 넣어놓음)
+    db.collection('post').findOne({ _id : 1 } /* 원래 코드 => req.body */, function(e, result) {
+        if(e) return console.log(e);
+        console.log(result);
+        // 응답으로 object나 array 자료형을 보낼 때 json() 사용
+        res.json(result);
+        // 성공적으로 편지 불러올 시 200 응답 코드 보냄
+        // res.status(200).send({ message : '과거에서 온 편지가 도착하였습니다.'});
     });
 });
+
+// 리액트에서 라우팅하도록 전권 넘김
+    app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, '../frontend/slowmailbox/build/index.html'));
+    });
