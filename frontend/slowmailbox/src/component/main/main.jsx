@@ -9,7 +9,7 @@ const Main = () => {
         <p className="user_box">00님의 우체통</p>
         <div>
           <div className="mailbox">
-            <Link to="/mail">
+            <Link to="/arrive">
               <button className="my_mail">♥</button>
             </Link>
           </div>

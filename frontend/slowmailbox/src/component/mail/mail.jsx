@@ -1,7 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./mail.css";
 import DomToImage from "dom-to-image";
 import { saveAs } from "file-saver";
+import axios from "axios";
 
 const Mail = () => {
   const imgName = "Test";
@@ -21,11 +22,23 @@ const Mail = () => {
     });
   };
 
+
+  const [mail, setMail] = useState("");
+
+  useEffect(()=> {
+    axios.get("http://localhost:3000/arrive")
+    .then(response => {
+      console.log(response.data);
+      setMail(response.data);
+    })
+    .catch(error => console.log(error));
+  },[])
+
   return (
     <div id="ownglyph">
-      <div ref={letterRef} className="downloadArea">
+      <div ref={letterRef} className="downloadArea" style={{ backgroundImage: 'url(/public/letter_img/letter02.png)' }}>
         <div className="letter">
-          <div className="textArea_style">여기 편지 내용이요..</div>
+          <div className="textArea_style"> {mail.text} </div>
         </div>
       </div>
 

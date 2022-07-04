@@ -110,7 +110,7 @@ app.post('/send', function(req, res) {
 });
 
 // DB에서 편지 내용 불러오는 API
-app.get('/mail', function(req, res) {
+app.get('/arrive', function(req, res) {
     /* req.body._id = parseInt(req.body._id); */
     // 요청에서 넘어온 편지 고유번호를 이용하여 DB에서 편지 찾기(임시로 아무 숫자 넣어놓음)
     db.collection('post').findOne({ _id : 1 } /* 원래 코드 => req.body */, function(e, result) {
