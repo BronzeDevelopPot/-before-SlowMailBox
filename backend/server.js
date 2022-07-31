@@ -7,6 +7,7 @@ const session = require('express-session');
 var cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 const path = require('path'); // 경로를 쉽게 다루기 위함
+const { isNativeError } = require('util/types');
 require('dotenv').config(); // 환경변수 사용을 위함
 app.use(express.urlencoded({extended: true})); // 요청에서 온 데이터를 쉽게 처리하기 위함
 app.use(express.json());
@@ -37,6 +38,7 @@ app.get('/auth/kakao', (req, res) => {
 })
 
 app.get('/auth/kakao/callback', async(req, res) => {
+
     try{
     token = await axios({
         method: 'POST',
@@ -52,6 +54,7 @@ app.get('/auth/kakao/callback', async(req, res) => {
             code:req.query.code,
         })
     })
+
 }catch(err){
     res.json(err.data);
 }
@@ -65,15 +68,25 @@ app.get('/auth/kakao/callback', async(req, res) => {
                 Authorization: `Bearer ${token.data.access_token}`
             }
         })
+
+        db.collection('users').insertOne(
+        { _id : user.data.id, email : user.data.kakao_account.email}, function(e, result) {
+            console.log('유저 정보!');
+        });
+
     }catch(e){
         res.json(e.data);
     }
-    console.log(user);
- 
+
+    // console.log(user.data.kakao_account.profile);
+    // console.log(user.data.id);
+    // console.log(user.data.kakao_account.email);
+
     req.session.kakao = user.data;
     
     res.send('success');
-})
+
+});
 
 app.get(kakao.redirectURL)
 
@@ -110,7 +123,7 @@ app.post('/send', function(req, res) {
 });
 
 // DB에서 편지 내용 불러오는 API
-app.get('/mail', function(req, res) {
+app.get('/arrive', function(req, res) {
     /* req.body._id = parseInt(req.body._id); */
     // 요청에서 넘어온 편지 고유번호를 이용하여 DB에서 편지 찾기(임시로 아무 숫자 넣어놓음)
     db.collection('post').findOne({ _id : 1 } /* 원래 코드 => req.body */, function(e, result) {
