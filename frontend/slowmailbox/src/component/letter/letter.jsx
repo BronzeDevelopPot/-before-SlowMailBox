@@ -27,7 +27,7 @@ const Letter = () => {
 
       <div className="letter_sendline">
         <button className="letter_send" onClick={onClick}>
-          작성
+          작 성
         </button>
       </div>
     </div>
