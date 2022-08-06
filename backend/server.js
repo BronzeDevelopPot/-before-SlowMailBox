@@ -69,9 +69,10 @@ app.get('/auth/kakao/callback', async(req, res) => {
             }
         })
 
+        // mongoDB에 user data 삽입
         db.collection('users').insertOne(
         { _id : user.data.id, nickname : user.data.kakao_account.profile.nickname, email : user.data.kakao_account.email}, function(e, result) {
-            console.log('유저 정보!');
+            console.log('success');
         });
 
     }catch(e){
