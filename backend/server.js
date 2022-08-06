@@ -70,7 +70,7 @@ app.get('/auth/kakao/callback', async(req, res) => {
         })
 
         db.collection('users').insertOne(
-        { _id : user.data.id, email : user.data.kakao_account.email}, function(e, result) {
+        { _id : user.data.id, nickname : user.data.kakao_account.profile.nickname, email : user.data.kakao_account.email}, function(e, result) {
             console.log('유저 정보!');
         });
 
@@ -78,9 +78,7 @@ app.get('/auth/kakao/callback', async(req, res) => {
         res.json(e.data);
     }
 
-    // console.log(user.data.kakao_account.profile);
-    // console.log(user.data.id);
-    // console.log(user.data.kakao_account.email);
+    console.log(user.data);
 
     req.session.kakao = user.data;
     
