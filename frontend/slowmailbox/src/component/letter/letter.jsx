@@ -4,6 +4,8 @@ import { useState } from "react";
 import "./letter.css";
 
 
+/* contributors test로 이 글은 신경쓰지 마세요. pull하고 지워주십셔 */
+
 const Letter = () => {
   const [modal, setModal] = useState(false);
 
@@ -27,7 +29,7 @@ const Letter = () => {
 
       <div className="letter_sendline">
         <button className="letter_send" onClick={onClick}>
-          작 성
+          작성
         </button>
       </div>
     </div>
