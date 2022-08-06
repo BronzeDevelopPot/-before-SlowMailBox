@@ -69,6 +69,63 @@ app.get("/auth/kakao/callback", async (req, res) => {
       },
     });
 
+    // mongoDB에 user data 삽입
+    db.collection("users").insertOne(
+      {
+        _id: user.data.id,
+        nickname: user.data.kakao_account.profile.nickname,
+        email: user.data.kakao_account.email,
+      },
+      function (e, result) {
+        console.log("success");
+      }
+    );
+  } catch (e) {
+    res.json(e.data);
+  }
+
+  console.log(user.data);
+
+  req.session.kakao = user.data;
+
+  res.send("success");
+});
+
+app.get("/auth/kakao", (req, res) => {
+  const kakaoAuthURL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakao.clientID}&redirect_uri=${kakao.redirectURL}&response_type=code&scope=profile_nickname,account_email`;
+  res.redirect(kakaoAuthURL);
+});
+
+app.get("/auth/kakao/callback", async (req, res) => {
+  try {
+    token = await axios({
+      method: "POST",
+      url: "https://kauth.kakao.com/oauth/token",
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+      },
+      data: qs.stringify({
+        grant_type: "authorization_code",
+        client_id: kakao.clientID,
+        client_secret: kakao.clientSecret,
+        redirectUri: kakao.redirectURL,
+        code: req.query.code,
+      }),
+    });
+  } catch (err) {
+    res.json(err.data);
+  }
+  let user;
+  try {
+    console.log(token);
+    user = await axios({
+      method: "get",
+      url: "https://kapi.kakao.com/v2/user/me",
+      headers: {
+        Authorization: `Bearer ${token.data.access_token}`,
+      },
+    });
+
     db.collection("users").insertOne(
       { _id: user.data.id, email: user.data.kakao_account.email },
       function (e, result) {
