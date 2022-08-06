@@ -29,16 +29,17 @@ const Mail = () => {
     axios.get("http://localhost:3000/arrive")
     .then(response => {
       console.log(response.data);
-      setMail(response.data);
+      setMail("닉네임 : " + response.data.from + "\n" + response.data.text);
     })
     .catch(error => console.log(error));
   },[])
 
+
   return (
     <div id="ownglyph">
-      <div ref={letterRef} className="downloadArea" style={{ backgroundImage: 'url(/public/letter_img/letter02.png)' }}>
+      <div ref={letterRef} className="downloadArea" style={{ backgroundImage: 'url(/letter_img/letter02.png)' }}>
         <div className="letter">
-          <div className="textArea_style"> {mail.text} </div>
+          <div className="textArea_style"> {mail} </div>
         </div>
       </div>
 
