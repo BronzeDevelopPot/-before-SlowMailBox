@@ -214,6 +214,19 @@ app.get("/arrive", function (req, res) {
   );
 });
 
+// 세션 이용하여 현재 로그인한 유저의 우편함 페이지 접속
+app.get("/list", function (req, res) {
+    console.log(req.session.kakao.id);
+    db.collection("mailbox").findOne(
+        { userID : req.session.kakao.id },
+        function (e, result) {
+            if (e) return console.log(e);
+            console.log(result);
+            res.json(result);
+        }
+    );
+});
+ 
 // 리액트에서 라우팅하도록 전권 넘김
 app.get("*", function (req, res) {
   res.sendFile(
