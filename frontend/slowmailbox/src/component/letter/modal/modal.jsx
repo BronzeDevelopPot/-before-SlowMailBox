@@ -17,8 +17,8 @@ const Modal = (props) => {
     var month;
     var date;
 
-    const m = today.getmonth;
-    var monthdif = selectedMonth - m;
+    const m = Number(today.getmonth());
+    var monthdif = String(selectedMonth - m);
     
     if (selectedMonth < 10) {
       month = "0" + String(selectedMonth);
