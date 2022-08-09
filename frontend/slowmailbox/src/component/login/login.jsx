@@ -1,10 +1,9 @@
 import { React } from "react";
 import "./login.css";
 import { KAKAO_AUTH_URL } from "./auth";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-
-
   return (
     <login>
       <link
@@ -25,6 +24,10 @@ const Login = () => {
             <img src="/login_img/kakao_login_large_wide.png"></img>
           </div>
         </a>
+
+        <Link to="/list">
+          <button>리스트페이지이동</button>
+        </Link>
       </div>
     </login>
   );

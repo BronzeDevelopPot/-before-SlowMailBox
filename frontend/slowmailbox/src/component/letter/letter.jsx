@@ -4,8 +4,6 @@ import { useState } from "react";
 import "./letter.css";
 
 
-/* contributors test로 이 글은 신경쓰지 마세요. pull하고 지워주십셔 */
-
 const Letter = () => {
   const [modal, setModal] = useState(false);
 

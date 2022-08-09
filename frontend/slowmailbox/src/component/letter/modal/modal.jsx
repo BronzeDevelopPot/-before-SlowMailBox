@@ -16,6 +16,9 @@ const Modal = (props) => {
 
     var month;
     var date;
+
+    const m = today.getmonth;
+    var monthdif = selectedMonth - m;
     
     if (selectedMonth < 10) {
       month = "0" + String(selectedMonth);
@@ -37,6 +40,7 @@ const Modal = (props) => {
       year: "2022",
       month: month,
       date: date,
+      monthdif : monthdif,
     });
   };
 
