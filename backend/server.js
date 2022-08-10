@@ -180,6 +180,7 @@ app.post("/send", function (req, res) {
           sendDate: req.body.year + req.body.month + req.body.date,
           arriveDate: req.body.year + req.body.month + req.body.date,
           text: req.body.text,
+          monthDif : req.body.monthDif
         },
         function (e, result) {
           console.log("편지가 정상적으로 전송되었습니다.");
