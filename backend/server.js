@@ -217,7 +217,7 @@ app.get("/arrive", function (req, res) {
 
 // 세션 이용하여 현재 로그인한 유저의 우편함 페이지 접속
 app.get("/list", function (req, res) {
-    console.log(req.session.kakao.id);
+    // 유저 정보와 유저가 보유한 편지 정보 JSON으로 전송
     db.collection("mailbox").findOne(
         { userID : req.session.kakao.id },
         function (e, result) {
