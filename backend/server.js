@@ -177,7 +177,7 @@ app.post("/send", function (req, res) {
         {
           _id: total + 1,
           from: req.body.name,
-          sendDate: req.body.year + req.body.month + req.body.date,
+          sendDate: req.body.year + req.body.todayMonth + req.body.todayDate,
           arriveDate: req.body.year + req.body.month + req.body.date,
           text: req.body.text,
           monthDif : req.body.monthDif

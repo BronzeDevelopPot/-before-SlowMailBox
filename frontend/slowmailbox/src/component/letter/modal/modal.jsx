@@ -16,10 +16,13 @@ const Modal = (props) => {
 
     var month;
     var date;
+    var todayMonth = String(today.getmonth()+1);
+    var todayDate = String(today.getDate());
 
-    const m = Number(today.getmonth());
+    const m = Number(today.getmonth()+1);
     var monthDif = String(selectedMonth - m);
     
+
     if (selectedMonth < 10) {
       month = "0" + String(selectedMonth);
     }
@@ -38,6 +41,8 @@ const Modal = (props) => {
       text: props.inputText,
       name: name,
       year: "2022",
+      todayMonth: todayMonth,
+      todayDate: todayDate,
       month: month,
       date: date,
       monthDif : monthDif,

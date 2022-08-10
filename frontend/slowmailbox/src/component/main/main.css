@@ -3,8 +3,10 @@ main {
   flex-direction: column;
 }
 .user_box {
+  position: fixed;
   font-size: 50px;
   font-weight: bold;
+  margin-left: 100px;
 }
 
 .mailbox {
@@ -23,14 +25,11 @@ main {
   background-repeat: no-repeat;
 }
 
-.sendline {
-  width: 500px;
-  margin-top: 570px;
-}
-
-.shareline {
-  margin-top: 10px;
-}
+.footer_Line {
+  position: fixed;
+  margin-left: 50px;
+  bottom: 90px;
+} 
 
 .sendbutton {
   width: 70px;

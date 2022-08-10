@@ -29,7 +29,7 @@ const Mail = () => {
     axios.get("http://localhost:3000/arrive")
     .then(response => {
       console.log(response.data);
-      setMail("닉네임 : " + response.data.from + "\n" + response.data.text);
+      setMail(response.data.text);
     })
     .catch(error => console.log(error));
   },[])
