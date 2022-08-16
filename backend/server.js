@@ -77,9 +77,10 @@ app.get("/auth/kakao/callback", async (req, res) => {
         email: user.data.kakao_account.email,
       },
       function (e, result) {
-        console.log("success");
+        console.log("유저 정보 전송 완료");
       }
     );
+  
   } catch (e) {
     res.json(e.data);
   }
@@ -88,61 +89,8 @@ app.get("/auth/kakao/callback", async (req, res) => {
 
   req.session.kakao = user.data;
 
-  res.send("success");
-});
-
-app.get("/auth/kakao", (req, res) => {
-  const kakaoAuthURL = `https://kauth.kakao.com/oauth/authorize?client_id=${kakao.clientID}&redirect_uri=${kakao.redirectURL}&response_type=code&scope=profile_nickname,account_email`;
-  res.redirect(kakaoAuthURL);
-});
-
-app.get("/auth/kakao/callback", async (req, res) => {
-  try {
-    token = await axios({
-      method: "POST",
-      url: "https://kauth.kakao.com/oauth/token",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
-      data: qs.stringify({
-        grant_type: "authorization_code",
-        client_id: kakao.clientID,
-        client_secret: kakao.clientSecret,
-        redirectUri: kakao.redirectURL,
-        code: req.query.code,
-      }),
-    });
-  } catch (err) {
-    res.json(err.data);
-  }
-  let user;
-  try {
-    console.log(token);
-    user = await axios({
-      method: "get",
-      url: "https://kapi.kakao.com/v2/user/me",
-      headers: {
-        Authorization: `Bearer ${token.data.access_token}`,
-      },
-    });
-
-    db.collection("users").insertOne(
-      { _id: user.data.id, email: user.data.kakao_account.email },
-      function (e, result) {
-        console.log("유저 정보!");
-      }
-    );
-  } catch (e) {
-    res.json(e.data);
-  }
-
-  // console.log(user.data.kakao_account.profile);
-  // console.log(user.data.id);
-  // console.log(user.data.kakao_account.email);
-
-  req.session.kakao = user.data;
-
-  res.send("success");
+  // 로그인하면 'http://localhost:3000/list'로 이동
+  res.redirect('http://localhost:3000/list'); 
 });
 
 app.get(kakao.redirectURL);
