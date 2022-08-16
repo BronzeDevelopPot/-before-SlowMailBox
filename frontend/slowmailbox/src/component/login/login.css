@@ -24,6 +24,9 @@
 img {
   display: block;
   text-align: center;
+
+  width: 100%;
+  height: 100%;
 }
 
 /* 자판기 이미지 */
@@ -44,10 +47,6 @@ img {
   width: 400px;
 }
 
-/* 메인으로 버튼*/
-button {
-  margin-bottom: 30px;
-}
 
 /* 폰트 적용 */
 @font-face {

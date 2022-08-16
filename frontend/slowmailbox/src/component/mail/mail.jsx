@@ -4,6 +4,7 @@ import DomToImage from "dom-to-image";
 import { saveAs } from "file-saver";
 import axios from "axios";
 
+
 const Mail = () => {
   const imgName = "Test";
   const letterRef = useRef();
@@ -37,7 +38,7 @@ const Mail = () => {
 
   return (
     <div id="ownglyph">
-      <div ref={letterRef} className="downloadArea" style={{ backgroundImage: 'url(/letter_img/letter02.png)' }}>
+      <div ref={letterRef} className="downloadArea" style="background-image: url('/letter_img/letter02.png');">
         <div className="letter">
           <div className="textArea_style"> {mail} </div>
         </div>
