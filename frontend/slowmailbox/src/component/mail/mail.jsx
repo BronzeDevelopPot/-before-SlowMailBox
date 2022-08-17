@@ -38,7 +38,7 @@ const Mail = () => {
 
   return (
     <div id="ownglyph">
-      <div ref={letterRef} className="downloadArea" style="background-image: url('/letter_img/letter02.png');">
+      <div ref={letterRef} className="downloadArea" style="background-image: url('/img/letter02.png');">
         <div className="letter">
           <div className="textArea_style"> {mail} </div>
         </div>

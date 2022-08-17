@@ -175,7 +175,7 @@ const Modal = (props) => {
           <div className="join_ment">나도 추억의 우체통을 만들고 싶다면?</div>
           <img
             className="kakao_start_login_button"
-            src="/letter_img/kakao_login_start_large_wide.png"
+            src="/img/kakao_login_start_large_wide.png"
           ></img>
         </div>
       </div>

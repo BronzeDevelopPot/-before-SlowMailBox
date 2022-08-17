@@ -15,13 +15,13 @@ const Login = () => {
         <p className="title">추억의 느린 우체통</p>
         <img
           className="vending_machine"
-          src={process.env.PUBLIC_URL + "/login_img/postmailVendingmachine.png"}
+          src={process.env.PUBLIC_URL + "/img/postmailVendingmachine.png"}
         ></img>
         <p className="signup_promotion">느린우체통 만들기</p>
 
         <a href={KAKAO_AUTH_URL}>
           <div className="kakao_login_button">
-            <img src="/login_img/kakao_login_large_wide.png"></img>
+            <img src="/img/kakao_login_large_wide.png"></img>
           </div>
         </a>
 
