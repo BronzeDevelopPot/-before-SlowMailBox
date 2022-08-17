@@ -20,9 +20,14 @@ main {
   right: 0;
 
   width: 330px;
-  background-image: url(mailbox.png);
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.post_box {
+  margin-left: 75px;
+  margin-top: 80px;
+  width: 350px;
 }
 
 .footer_Line {

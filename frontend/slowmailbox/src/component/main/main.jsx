@@ -20,6 +20,7 @@ const Main = () => {
       <div id="ownglyph">
         <p className="user_box"> {name} </p>
         <div>
+          <img className="post_box" src={process.env.PUBLIC_URL + "/img/postmailVendingmachine.png"} />
           <div className="mailbox">
             <Link to="/arrive">
               <button className="my_mail">♥</button>
