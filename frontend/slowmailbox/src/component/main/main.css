@@ -28,7 +28,7 @@ main {
 .footer_Line {
   position: fixed;
   margin-left: 50px;
-  bottom: 90px;
+  bottom: 120px;
 } 
 
 .sendbutton {
@@ -40,6 +40,7 @@ main {
   font-family: "Uiyeun";
 
   margin-left: 270px;
+  margin-bottom: 40px;
   cursor: pointer;
 }
 

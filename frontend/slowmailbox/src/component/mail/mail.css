@@ -1,45 +1,44 @@
 .downloadArea {
-    width: 440px;
-    height: 700px;
-    margin-top: 40px;
-  
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  
-  .imageDownloadBtn {
-    width: 430px;
-    margin-top: 30px;
-    margin-left: 35px;
-    font-size: 33px;
-    border-radius: 7px;
-    border: rgb(247, 232, 191) solid 3px;
-    background-color: white;
-  
-    float: center;
-    cursor: pointer;
-    font-family: "Uiyeun";
-  }
-  
-  .imageDownload_line {
-    width: 450px;
-    margin-bottom: 100px;
-  }
-  
-  .textArea_style {
-    display: block;
-    margin: 0 auto;
-    resize: none;
-    border: none;
-    outline: none;
-    overflow: hidden;
-  
-    padding-top: 43px;
-    width: 330px;
-    height: 600px;
-    background-color: transparent;
-    font-size: 28px;
-    font-family: "Uiyeun";
-    line-height: 42px;
-  }
-  
+  width: 440px;
+  height: 700px;
+  margin-top: 40px;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.imageDownloadBtn {
+  width: 430px;
+  margin-top: 30px;
+  margin-left: 35px;
+  font-size: 33px;
+  border-radius: 7px;
+  border: rgb(247, 232, 191) solid 3px;
+  background-color: white;
+
+  float: center;
+  cursor: pointer;
+  font-family: "Uiyeun";
+}
+
+.imageDownload_line {
+  width: 450px;
+  margin-bottom: 100px;
+}
+
+.textArea_style {
+  display: block;
+  margin: 0 auto;
+  resize: none;
+  border: none;
+  outline: none;
+  overflow: hidden;
+
+  padding-top: 43px;
+  width: 330px;
+  height: 600px;
+  background-color: transparent;
+  font-size: 28px;
+  font-family: "Uiyeun";
+  line-height: 42px;
+}
