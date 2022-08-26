@@ -7,24 +7,29 @@ const Main = () => {
   const [name, setName] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:3000/list")
-    .then((response) => {
-      console.log(response.data);
-      setName(response.data.userName + " 님의 우체통");
-    })
-    .catch((error) => console.log(error));
+    axios
+      .get("http://localhost:3000/list")
+      .then((response) => {
+        console.log(response.data);
+        setName(response.data.userName + " 님의 우체통");
+      })
+      .catch((error) => console.log(error));
   }, []);
 
+
+  
   return (
     <main>
       <div id="ownglyph">
-        <p className="user_box"> {name} </p>
+        <p className="user_box"> {name} 아무개 님의 우체통 </p>
         <div>
-          <img className="post_box" src={process.env.PUBLIC_URL + "/img/postmailVendingmachine.png"} />
+          <img className="post_box" src="/img/postmailVendingmachine.png" />
           <div className="mailbox">
-            <Link to="/arrive">
-              <button className="my_mail">♥</button>
-            </Link>
+            <div className="envelope_box">
+              <Link to="/arrive">
+                <img className="first_post" src="/img/envelope.png" />
+              </Link>
+            </div>
           </div>
         </div>
 
