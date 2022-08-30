@@ -14,6 +14,17 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../frontend/slowmailbox/build")));
 
+var db; // 몽고디비 연결 ↓
+MongoClient.connect(process.env.DB_URL, function (e, client) {
+  if (e) return console.log(e);
+  db = client.db("SlowMailBox"); // 'SlowMailBox'라는 데이터베이스에 접속
+
+  app.listen(process.env.PORT, function () {
+    // 3000포트에 서버 열기
+    console.log("listening on 3000");
+  });
+});
+
 app.set("view engine", "html");
 nunjucks.configure("views", {
   express: app,
@@ -78,6 +89,29 @@ app.get("/auth/kakao/callback", async (req, res) => {
       },
       function (e, result) {
         console.log("유저 정보 전송 완료");
+        if (result) {
+          db.collection("counter").updateOne(
+            { _id : 2 },
+            { $inc : { totalUser : 1 }},
+            function (e, result) {
+              console.log("정보 수정 완료");
+              if (result) {
+                db.collection("mailbox").insertOne(
+                  {
+                    _id: result.totalUser,
+                    userId: user.data.id,
+                    userName: user.data.kakao_account.profile.nickname,
+                    totalLetter: 0,
+                  },
+                  function (e, result) {
+                    if (e) return console.log(e);
+                    console.log("신규 유저 데이터 삽입 완료");
+                  }
+                )
+              } 
+            }
+          )
+        };
       }
     );
   
@@ -91,20 +125,10 @@ app.get("/auth/kakao/callback", async (req, res) => {
 
   // 로그인하면 'http://localhost:3000/list'로 이동
   res.redirect('http://localhost:3000/list'); 
+
 });
 
 app.get(kakao.redirectURL);
-
-var db; // 몽고디비 연결 ↓
-MongoClient.connect(process.env.DB_URL, function (e, client) {
-  if (e) return console.log(e);
-  db = client.db("SlowMailBox"); // 'SlowMailBox'라는 데이터베이스에 접속
-
-  app.listen(process.env.PORT, function () {
-    // 3000포트에 서버 열기
-    console.log("listening on 3000");
-  });
-});
 
 app.get("/", function (req, res) {
   res.sendFile(
@@ -167,8 +191,8 @@ app.get("/arrive", function (req, res) {
 app.get("/list", function (req, res) {
     // 유저 정보와 유저가 보유한 편지 정보 JSON으로 전송
     db.collection("mailbox").findOne(
-        { userID : 2392587220 },
-        // { userID : req.session.kakao.id },
+        { userID : req.session.kakao.id },
+        // { userID : 2392587220 },
         function (e, result) {
             if (e) return console.log(e);
             console.log(result);
