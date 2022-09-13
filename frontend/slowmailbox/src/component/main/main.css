@@ -27,30 +27,96 @@ main {
   width: 360px;
 }
 
-.envelope_box{
+.envelope_top_box{
   margin-top: 135px;
-  padding-left: 70px;
+  height: 50px;
+
+  display: flex;
+  flex-direction: row;
 }
 
-.first_post {
-  width : 30px;
+.first_box {
+  width : 33px;
+  margin-left: 52px;
+}
+.second_box {
+  width : 33px;
+  margin-left : 15px;
+}
+.third_box {
+  width: 33px;
+  margin-left: 15px;
+}
+.forth_box {
+  width: 33px;
+  margin-left: 15px;
+}
+.fifth_box {
+  width: 33px;
+  margin-left: 15px;
+}
+
+.envelope_middle_box{
+  margin-top: 43px;
+  height: 50px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.sixth_box {
+  width : 33px;
+  margin-left: 52px;
+}
+.seventh_box {
+  width : 33px;
+  margin-left : 15px;
+}
+.eighth_box {
+  width: 33px;
+  margin-left: 15px;
+}
+.ninth_box {
+  width: 33px;
+  margin-left: 15px;
+}
+.tenth_box {
+  width: 33px;
+  margin-left: 15px;
+}
+
+.envelope_bottom_box{
+  margin-top: 40px;
+  height: 50px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.eleventh_box {
+  width : 33px;
+  margin-left: 52px;
+}
+.twelfth_box {
+  width : 33px;
+  margin-left : 15px;
 }
 
 .footer_Line {
   margin-left: 50px;
-  margin-top: -25px;
+  margin-top: -35px;
 }
 
 .sendbutton {
   width: 70px;
   font-size: 33px;
   border-radius: 7px;
-  border: black solid 2.5px;
+  border: rgb(247, 232, 191) solid 2.5px;
   background-color: white;
   font-family: "Uiyeun";
 
   margin-left: 270px;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
   cursor: pointer;
 }
 
@@ -59,7 +125,7 @@ main {
   font-size: 35px;
   background-color: white;
   border-radius: 7px;
-  border: black solid 2.5px;
+  border: rgb(247, 232, 191) solid 2.5px;
   font-family: "Uiyeun";
 
   cursor: pointer;

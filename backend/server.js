@@ -191,8 +191,8 @@ app.get("/arrive", function (req, res) {
 app.get("/list", function (req, res) {
     // 유저 정보와 유저가 보유한 편지 정보 JSON으로 전송
     db.collection("mailbox").findOne(
-        { userID : req.session.kakao.id },
-        // { userID : 2392587220 },
+        { userID : 2392587220 },
+        // { userID : req.session.kakao.id },
         function (e, result) {
             if (e) return console.log(e);
             console.log(result);
