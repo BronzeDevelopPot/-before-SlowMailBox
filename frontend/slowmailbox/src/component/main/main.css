@@ -38,22 +38,27 @@ main {
 .first_box {
   width : 33px;
   margin-left: 52px;
+  position : relative;
 }
 .second_box {
   width : 33px;
   margin-left : 15px;
+  position : relative;
 }
 .third_box {
   width: 33px;
   margin-left: 15px;
+  position : relative;
 }
 .forth_box {
   width: 33px;
   margin-left: 15px;
+  position : relative;
 }
 .fifth_box {
   width: 33px;
   margin-left: 15px;
+  position : relative;
 }
 
 .envelope_middle_box{
@@ -67,22 +72,27 @@ main {
 .sixth_box {
   width : 33px;
   margin-left: 52px;
+  position : relative;
 }
 .seventh_box {
   width : 33px;
   margin-left : 15px;
+  position : relative;
 }
 .eighth_box {
   width: 33px;
   margin-left: 15px;
+  position : relative;
 }
 .ninth_box {
   width: 33px;
   margin-left: 15px;
+  position : relative;
 }
 .tenth_box {
   width: 33px;
   margin-left: 15px;
+  position : relative;
 }
 
 .envelope_bottom_box{
@@ -96,11 +106,18 @@ main {
 .eleventh_box {
   width : 33px;
   margin-left: 52px;
+  position : relative;
 }
 .twelfth_box {
   width : 33px;
   margin-left : 15px;
+  position : relative;
 }
+
+.envelope_image{
+  position : absolute;
+}
+
 
 .footer_Line {
   margin-left: 50px;

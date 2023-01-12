@@ -40,7 +40,7 @@ const Modal = (props) => {
     axios.post("http://localhost:3000/send", {
       text: props.inputText,
       name: name,
-      year: "2022",
+      year: "2023",
       todayMonth: todayMonth,
       todayDate: todayDate,
       month: month,
@@ -61,16 +61,16 @@ const Modal = (props) => {
   }
 
   const arr = [];
-  if (thisMonth == 6 || thisMonth == 9 || thisMonth == 11) {
+  if (thisMonth == 4 || thisMonth == 6 || thisMonth == 9 || thisMonth == 11) {
     arr.splice(0, arr.length);
 
-    for (var x = thisDate; x <= 30; x++) {
+    for (var x = thisDate+1; x <= 30; x++) {
       arr.push(x);
     }
   } else {
     arr.splice(0, arr.length);
 
-    for (var y = thisDate; y <= 31; y++) {
+    for (var y = thisDate+1; y <= 31; y++) {
       arr.push(y);
     }
   }
@@ -81,11 +81,11 @@ const Modal = (props) => {
     setSelectedMonth(e.target.value);
 
     if (e.target.value == thisMonth) {
-      if (e.target.value == 6 || e.target.value == 9 || e.target.value == 11) {
+      if (e.target.value == 4 || e.target.value == 6 || e.target.value == 9 || e.target.value == 11) {
         let date_1 = [];
         date_1.splice(0, date_1.length);
 
-        for (var i = thisDate; i <= 30; i++) {
+        for (var i = thisDate+1; i <= 30; i++) {
           date_1.push(i);
         }
         setDateList(date_1);
@@ -93,19 +93,18 @@ const Modal = (props) => {
         let date_2 = [];
         date_2.splice(0, date_2.length);
 
-        for (var j = thisDate; j <= 31; j++) {
+        for (var j = thisDate+1; j <= 31; j++) {
           date_2.push(j);
         }
         setDateList(date_2);
       }
-    } else if (e.target.value == 6 || e.target.value == 9 || e.target.value == 11){
+    } else if (e.target.value == 4 || e.target.value == 6 || e.target.value == 9 || e.target.value == 11){
       setDateList([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30])
     }
     else{
       setDateList([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31])
     }
   }
-  
   
 
   const [selectedDate, setSelectedDate] = useState();
@@ -128,7 +127,7 @@ const Modal = (props) => {
           <div className="date_ment">보낼 날짜를 선택해주세요!</div>
           <div className="date_select">
             <select className="year" name="year">
-              <option value="2022">2022</option>
+              <option value="2023">2023</option>
             </select>
             <div>년</div>
 

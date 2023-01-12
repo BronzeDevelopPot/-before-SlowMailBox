@@ -5,7 +5,7 @@ import "./main.css";
 
 const Main = () => {
   const [name, setName] = useState("");
-  const [envelope, setEnvelope] = useState();
+  const [envelope, setEnvelope] = useState([]);
 
   useEffect(() => {
     axios
@@ -13,13 +13,27 @@ const Main = () => {
       .then((response) => {
         console.log(response.data);
         setName(response.data.userName);
-        setEnvelope(response.data.letter.dif[0]);
+
+        for (let i = 0; i < response.data.letter.length; i++) {
+          setEnvelope(response.data.letter.dif[i]);
+        }
       })
       .catch((error) => console.log(error));
   }, []);
 
+  const Envelope = (n) => {
+    for (let i = 0; i < envelope.length; i++) {
+      if (envelope[i] == n) {
+        return (
+          <Link to="/arrive">
+            <img src="/img/envelope.png" className="envelope_image" />
+          </Link>
+        );
+      }
+    }
+  }
 
-  
+
   return (
     <main>
       <div id="ownglyph">
@@ -29,94 +43,46 @@ const Main = () => {
           <div className="mailbox">
             <div className="envelope_top_box">
               <div className="first_box">
-                {envelope == 1 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(1) }
               </div>
               <div className="second_box">
-                {envelope == 2 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(2) }
               </div>
               <div className="third_box">
-                {envelope == 3 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(3) }
               </div>
               <div className="forth_box">
-                {envelope == 4 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(4) }
               </div>
               <div className="fifth_box">
-                {envelope == 5 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(5) }
               </div>
             </div>
 
             <div className="envelope_middle_box">
               <div className="sixth_box">
-                {envelope == 6 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(6) }
               </div>
               <div className="seventh_box">
-                {envelope == 7 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(7) }
               </div>
               <div className="eighth_box">
-                {envelope == 8 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(8) }
               </div>
               <div className="ninth_box">
-                {envelope == 9 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(9) }
               </div>
               <div className="tenth_box">
-                {envelope == 10 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(10) }
               </div>
             </div>
 
             <div className="envelope_bottom_box">
               <div className="eleventh_box">
-                {envelope == 11 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(11) }
               </div>
               <div className="twelfth_box">
-                {envelope == 12 && (
-                  <Link to="/arrive">
-                    <img src="/img/envelope.png" />
-                  </Link>
-                )}
+                { Envelope(12) }
               </div>
             </div>
           </div>
