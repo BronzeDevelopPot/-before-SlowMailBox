@@ -61,7 +61,13 @@ const Modal = (props) => {
   }
 
   const arr = [];
-  if (thisMonth == 4 || thisMonth == 6 || thisMonth == 9 || thisMonth == 11) {
+  if (thisMonth == 2) {
+    arr.splice(0,arr.length);
+
+    for (var x = thisDate+1; x<=28; x++) {
+      arr.push(x);
+    }
+  } else if (thisMonth == 4 || thisMonth == 6 || thisMonth == 9 || thisMonth == 11) {
     arr.splice(0, arr.length);
 
     for (var x = thisDate+1; x <= 30; x++) {
@@ -81,24 +87,36 @@ const Modal = (props) => {
     setSelectedMonth(e.target.value);
 
     if (e.target.value == thisMonth) {
-      if (e.target.value == 4 || e.target.value == 6 || e.target.value == 9 || e.target.value == 11) {
+      if (e.target.value == 2) {
         let date_1 = [];
         date_1.splice(0, date_1.length);
 
-        for (var i = thisDate+1; i <= 30; i++) {
+        for (var i = thisDate+1; i <= 28; i++) {
           date_1.push(i);
         }
         setDateList(date_1);
-      } else {
+      }else if (e.target.value == 4 || e.target.value == 6 || e.target.value == 9 || e.target.value == 11) {
         let date_2 = [];
         date_2.splice(0, date_2.length);
 
-        for (var j = thisDate+1; j <= 31; j++) {
-          date_2.push(j);
+        for (var i = thisDate+1; i <= 30; i++) {
+          date_2.push(i);
         }
         setDateList(date_2);
+      } else {
+        let date_3 = [];
+        date_3.splice(0, date_3.length);
+
+        for (var j = thisDate+1; j <= 31; j++) {
+          date_3.push(j);
+        }
+        setDateList(date_3);
       }
-    } else if (e.target.value == 4 || e.target.value == 6 || e.target.value == 9 || e.target.value == 11){
+    } 
+    else if (e.target.value == 2){
+      setDateList([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28])
+    }
+    else if (e.target.value == 4 || e.target.value == 6 || e.target.value == 9 || e.target.value == 11){
       setDateList([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30])
     }
     else{

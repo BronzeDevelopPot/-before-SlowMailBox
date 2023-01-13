@@ -13,10 +13,7 @@ const Main = () => {
       .then((response) => {
         console.log(response.data);
         setName(response.data.userName);
-
-        for (let i = 0; i < response.data.letter.length; i++) {
-          setEnvelope(response.data.letter.dif[i]);
-        }
+        setEnvelope(response.data.letter.dif);
       })
       .catch((error) => console.log(error));
   }, []);
