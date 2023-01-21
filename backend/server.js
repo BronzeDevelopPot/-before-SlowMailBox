@@ -91,8 +91,8 @@ app.get("/auth/kakao/callback", async (req, res) => {
         console.log("유저 정보 전송 완료");
         if (result) {
           db.collection("counter").updateOne(
-            { _id : 2 },
-            { $inc : { totalUser : 1 }},
+            { _id: 2 },
+            { $inc: { totalUser: 1 } },
             function (e, result) {
               console.log("정보 수정 완료");
               if (result) {
@@ -107,14 +107,13 @@ app.get("/auth/kakao/callback", async (req, res) => {
                     if (e) return console.log(e);
                     console.log("신규 유저 데이터 삽입 완료");
                   }
-                )
-              } 
+                );
+              }
             }
-          )
-        };
+          );
+        }
       }
     );
-  
   } catch (e) {
     res.json(e.data);
   }
@@ -124,8 +123,7 @@ app.get("/auth/kakao/callback", async (req, res) => {
   req.session.kakao = user.data;
 
   // 로그인하면 'http://localhost:3000/list'로 이동
-  res.redirect('http://localhost:3000/list'); 
-
+  res.redirect("http://localhost:3000/list");
 });
 
 app.get(kakao.redirectURL);
@@ -152,7 +150,7 @@ app.post("/send", function (req, res) {
           sendDate: req.body.year + req.body.todayMonth + req.body.todayDate,
           arriveDate: req.body.year + req.body.month + req.body.date,
           text: req.body.text,
-          monthDif : req.body.monthDif
+          monthDif: req.body.monthDif,
         },
         function (e, result) {
           console.log("편지가 정상적으로 전송되었습니다.");
@@ -189,18 +187,18 @@ app.get("/arrive", function (req, res) {
 
 // 세션 이용하여 현재 로그인한 유저의 우편함 페이지 접속
 app.get("/list", function (req, res) {
-    // 유저 정보와 유저가 보유한 편지 정보 JSON으로 전송
-    db.collection("mailbox").findOne(
-        { userID : 2392587220 },
-        // { userID : req.session.kakao.id },
-        function (e, result) {
-            if (e) return console.log(e);
-            console.log(result);
-            res.json(result);
-        }
-    );
+  // 유저 정보와 유저가 보유한 편지 정보 JSON으로 전송
+  db.collection("mailbox").findOne(
+    { userID: 2392587220 },
+    // { userID : req.session.kakao.id },
+    function (e, result) {
+      if (e) return console.log(e);
+      console.log(result);
+      res.json(result);
+    }
+  );
 });
- 
+
 // 리액트에서 라우팅하도록 전권 넘김
 app.get("*", function (req, res) {
   res.sendFile(
@@ -208,4 +206,38 @@ app.get("*", function (req, res) {
   );
 });
 
-//잠깐 깃허브 연습 좀,, 오랜만이라 까묵음
+const schedule = require("node-schedule");
+// 매일 오전 12시 정각에 이벤트 실행
+const j = schedule.scheduleJob("0 0 * * *", function () {
+  db.collection("post")
+    .find()
+    .toArray(function (e, result) {
+      if (e) return console.log(e);
+
+      result.map(function (letter) {
+        var id = letter._id;
+        var today = new Date(); // 현재 시간
+        // 도착일까지 남은 개월수
+        var months = monthDif(today, new Date(letter.arriveDate));
+
+        // DB에 있는 개월수(monthDif) 업데이트
+        if (letter.monthDif !== months) {
+          db.collection("post").updateOne(
+            { _id: id },
+            { $set: { monthDif: months } },
+            function (e, result) {
+              if (e) return console.log(e);
+            }
+          );
+        }
+      });
+    });
+});
+
+// 월 차이 계산 함수
+function monthDif(startDate, endDate) {
+  var btMs = endDate.getTime() - startDate.getTime();
+  var btDay = Math.floor(btMs / (1000 * 60 * 60 * 24));
+  var months = Math.ceil(btDay / 30);
+  return months <= 0 ? 0 : months;
+}
