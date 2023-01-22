@@ -99,7 +99,7 @@ app.get("/auth/kakao/callback", async (req, res) => {
                 db.collection("mailbox").insertOne(
                   {
                     _id: result.totalUser,
-                    userId: user.data.id,
+                    userID: user.data.id,
                     userName: user.data.kakao_account.profile.nickname,
                     totalLetter: 0,
                   },
@@ -123,7 +123,7 @@ app.get("/auth/kakao/callback", async (req, res) => {
   req.session.kakao = user.data;
 
   // 로그인하면 'http://localhost:3000/list'로 이동
-  res.redirect("http://localhost:3000/list");
+  res.redirect("http://localhost:3001/list");
 });
 
 app.get(kakao.redirectURL);
@@ -199,13 +199,6 @@ app.get("/list", function (req, res) {
   );
 });
 
-// 리액트에서 라우팅하도록 전권 넘김
-app.get("*", function (req, res) {
-  res.sendFile(
-    path.join(__dirname, "../frontend/slowmailbox/build/index.html")
-  );
-});
-
 const schedule = require("node-schedule");
 // 매일 오전 12시 정각에 이벤트 실행
 const j = schedule.scheduleJob("0 0 * * *", function () {
@@ -241,3 +234,10 @@ function monthDif(startDate, endDate) {
   var months = Math.ceil(btDay / 30);
   return months <= 0 ? 0 : months;
 }
+
+// 리액트에서 라우팅하도록 전권 넘김
+app.get("*", function (req, res) {
+  res.sendFile(
+    path.join(__dirname, "../frontend/slowmailbox/build/index.html")
+  );
+});
